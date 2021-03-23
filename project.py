@@ -7,9 +7,9 @@ generatedList = list(pathofFile.glob('*.app'))
 
 emptyList = []
 for item in generatedList:
-    emptyList.append(item)
-    print(item.name)
+    emptyList.append(item.name)
+print(emptyList)
 
 with open('listofApps.txt', 'w') as fileobject:
-    fileobject.write(str(item))
+    fileobject.write(str(emptyList))
     fileobject.close()
