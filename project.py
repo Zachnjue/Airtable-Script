@@ -3,16 +3,13 @@ from pathlib import Path
 import os
 
 pathofFile = Path('/Applications')
-generatedList = list(pathofFile.glob('*'))
-#emptyList = []
+generatedList = list(pathofFile.glob('*.app'))
+
+emptyList = []
 for item in generatedList:
+    emptyList.append(item)
     print(item.name)
-    # emptyList.append(item)
-# print(emptyList[1])
-# sortList
 
-
-'''with open('listofApps.txt', 'w') as fileobject:
-    fileobject.write(str(x))
+with open('listofApps.txt', 'w') as fileobject:
+    fileobject.write(str(item))
     fileobject.close()
-'''
