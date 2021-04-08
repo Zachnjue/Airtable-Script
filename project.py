@@ -21,8 +21,9 @@ generatedList = list(pathofFile.glob('*.app'))
 emptyList = []
 for item in generatedList:
     emptyList.append(item.name)
+    # Path where .plist is stored
     filename = f'/Applications/{item.name}/Contents/Info.plist'
-# filename = 'info.plist'
+    # Reads the file .plist
     try:
         with open(filename, 'rb') as fp:
             p1 = load(fp)
@@ -32,17 +33,3 @@ for item in generatedList:
         continue
     except PermissionError:
         print(f"This file {item.name} has PermissionError")
-"""
-with open('listofApps.txt', 'w') as fileobject:
-    fileobject.write(str(emptyList))
-    fileobject.close()
-
-# Retrieving BundleIndentifiers from the info.splitlines()
-from plistlib import load
-
-filename = '/Applications/Safari.app/Contents/Info.plist'
-
-with open(filename, 'rb') as fp:
-    p1 = load(fp)
-print(p1["CFBundleIdentifier"])
-"""
